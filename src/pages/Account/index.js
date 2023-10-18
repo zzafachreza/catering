@@ -36,8 +36,10 @@ export default function Account({ navigation, route }) {
 
   const btnKeluar = () => {
     storeData('user', null);
-
-    navigation.replace('Login');
+    navigation.reset({
+      index: 0,
+      routes: [{ name: 'Splash' }],
+    });
 
   };
 

@@ -35,18 +35,6 @@ export default function Login({ navigation }) {
     password: '',
   });
 
-  const backAction = () => {
-    Alert.alert(MYAPP, "Apakah kamu yakin akan keluar aplikasi ?", [
-      {
-        text: "Cancel",
-        onPress: () => null,
-        style: "cancel"
-      },
-      { text: "YES", onPress: () => BackHandler.exitApp() }
-    ]);
-    return true;
-  };
-
 
   useEffect(() => {
     getData('token').then(res => {
@@ -55,12 +43,8 @@ export default function Login({ navigation }) {
     });
 
 
-    const backHandler = BackHandler.addEventListener(
-      "hardwareBackPress",
-      backAction
-    );
 
-    return () => backHandler.remove();
+
 
 
   }, []);
